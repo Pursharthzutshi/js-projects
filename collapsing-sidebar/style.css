@@ -1,0 +1,82 @@
+body {
+    font-family: "Montserrat";
+}
+
+.show-sidebar-icon,
+.cross-sidebar-icon,
+.icon-li-row:hover {
+    cursor: pointer;
+}
+
+ul,
+.icon-li-row {
+    display: flex;
+}
+
+.left-sidebar {
+    margin-left: -12px;
+    width: 10%;
+    box-shadow: .2px .2px 22px .2px lightgrey;
+    padding: 2px 2px 12px 0px;
+    border-left: 5px solid black;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+ul {
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+ion-icon {
+    font-size: 1.3rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    margin: 3px 0px 0px 0px;
+    text-decoration: none;
+}
+
+.icon-li-row {
+    flex-direction: row;
+    gap: 15px;
+}
+
+.icon-li-row:hover {
+    background: whitesmoke;
+    padding: 8px 12px 8px 12px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.container {
+    margin-left: -100px;
+    visibility: hidden;
+}
+
+.show-sidebar-icon,
+.cross-sidebar-icon {
+    border: none;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.show-sidebar-icon {
+    padding: 5px 12px 5px 12px;
+    box-shadow: .2px .2px 12px .2px gray;
+    background: #551a8b;
+}
+
+.cross-sidebar-icon {
+    padding: 6px 10px 4px 10px;
+    border-radius: 200px;
+    margin-left: 150px;
+    box-shadow: .2px .2px 12px .2px gray;
+    background: #de1738;
+}
