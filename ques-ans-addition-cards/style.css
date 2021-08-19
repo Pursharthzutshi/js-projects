@@ -1,0 +1,100 @@
+body {
+    font-family: "Montserrat";
+}
+
+.save-button,
+.add-ques-button,
+.edit-button,
+.delete-button {
+    border: none;
+    box-shadow: none;
+    font-family: "Montserrat";
+}
+
+.add-ques-button {
+    margin-left: 20px;
+    padding: 5px 12px 5px 12px;
+    background: #0047ab;
+    box-shadow: 0.2px 0.2px 12px 0.2px gray;
+    color: white;
+}
+
+.ques-box {
+    width: 40%;
+    height: 20rem;
+    padding: 30px 2px 2px 22px;
+    margin-top: 20px;
+    box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
+}
+
+.ques-text-area,
+.ans-text-area {
+    width: 90%;
+}
+
+.ques-text-area {
+    margin-top: 20px;
+}
+
+.ans-text-area {
+    margin-top: 20px;
+}
+
+.save-button {
+    margin-top: 20px;
+    padding: 5px 12px 5px 12px;
+    background: black;
+    color: white;
+}
+
+.ques-heading-title,
+.ans-heading-title {
+    font-size: 1.3rem;
+}
+
+.create-save-box {
+    height: 10rem;
+    border: 3px dotted #32174d;
+    box-shadow: 0.2px 0.2px 12px 0.2px lightgray;
+    padding: 2px 25px 2px 25px;
+}
+
+.save-container-box,
+.save-box-button-container {
+    display: flex;
+}
+
+.save-container-box,
+.save-box-button-container {
+    flex-direction: row;
+}
+
+.save-container-box {
+    gap: 20px;
+    margin-top: 40px;
+    padding: 2px 2px 2px 12px;
+}
+
+.save-box-button-container {
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 4px 10px 4px 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+.edit-button {
+    background: #0073cf;
+}
+
+.delete-button {
+    background: #ff0038;
+}
+
+.show-error {
+    margin-top: 32px;
+}
