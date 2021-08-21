@@ -1,59 +1,79 @@
 const input = document.querySelector(".input");
-const button = document.querySelector(".button");
+const addButton = document.querySelector(".add-button");
 const todoUl = document.querySelector(".todo-ul");
 
-button.addEventListener("click", todoDiv);
+addButton.addEventListener("click", todoDiv);
 
 function todoDiv() {
-  const div = document.createElement("div");
-  div.classList.add("div");
+    const div = document.createElement("div");
+    div.classList.add("div");
+    div.setAttribute(
+        "style",
+        "display:flex;flex-direction:row;justify-content:space-between;"
+    );
 
-  const li = document.createElement("li");
-  li.classList.add("li");
-  li.style.listStyle = "none";
+    const liContainer = document.createElement("div");
+    liContainer.classList.add("li-container");
 
-  if (input.value != "") {
-    li.innerHTML = input.value;
-    input.value = "";
-  } else {
-    return;
-  }
+    const li = document.createElement("li");
+    li.classList.add("li");
+    li.style.listStyle = "none";
 
-  const inputRemove = document.querySelector(".input").value;
-  inputRemove.innerHTML = "";
+    liContainer.appendChild(li);
 
-  div.appendChild(li);
+    if (input.value != "") {
+        li.innerHTML = input.value;
+        input.value = "";
+    } else {
+        return;
+    }
 
-  const checkBtn = document.createElement("button");
-  checkBtn.classList.add("check-btn");
-  checkBtn.innerHTML = "<i class='fas fa-check'></i>";
+    const inputRemove = document.querySelector(".input").value;
+    inputRemove.innerHTML = "";
 
-  div.appendChild(checkBtn);
+    div.appendChild(liContainer);
 
-  const trashBtn = document.createElement("button");
-  trashBtn.classList.add("trash-btn");
-  trashBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
+    const btnContainer = document.createElement("div");
+    btnContainer.classList.add("btn-container");
 
-  div.appendChild(trashBtn);
+    const checkBtn = document.createElement("button");
+    checkBtn.classList.add("check-btn");
+    checkBtn.innerHTML = "<i class='fas fa-check'></i>";
 
-  todoUl.appendChild(div);
+    btnContainer.appendChild(checkBtn);
 
-  trashBtn.addEventListener("click", removeValue);
-  checkBtn.addEventListener("focus", checkMarkValue);
-  checkBtn.addEventListener("dblckick", noCheckMarkValue);
+    const trashBtn = document.createElement("button");
+    trashBtn.classList.add("trash-btn");
+    trashBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
+
+    btnContainer.appendChild(trashBtn);
+
+    div.appendChild(btnContainer);
+
+    todoUl.appendChild(div);
+
+    trashBtn.addEventListener("click", removeValue);
+    checkBtn.addEventListener("click", checkMarkValue);
 }
 
 function checkMarkValue(e) {
-  const checkMark = document.querySelector("li");
-  checkMark.style.textDecoration = "line-through";
-}
+    const checkMark = document.querySelector("li");
 
-function noCheckMarkValue() {
-  const checkMark = document.querySelector("li");
-  checkMark.style.textDecoration = "none";
+    checkMark.classList.toggle("toggle-li");
 }
 
 function removeValue() {
-  const removeDiv = document.querySelector(".div");
-  todoUl.removeChild(removeDiv);
+    const removeDiv = document.querySelector(".div");
+    todoUl.removeChild(removeDiv);
+}
+const clearAllValuesButton = document.querySelector(".clear-all-button");
+
+clearAllValuesButton.addEventListener("click", clearAllValues);
+
+function clearAllValues() {
+    const todoUl = document.querySelector(".todo-ul");
+
+    const div = document.querySelector(".div");
+
+    todoUl.removeChild(div);
 }
