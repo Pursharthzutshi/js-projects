@@ -52,6 +52,16 @@ function todoDiv() {
 
     todoUl.appendChild(div);
 
+    clearAllValuesButton.addEventListener("click", clearAllValues);
+
+    function clearAllValues() {
+        const todoUl = document.querySelector(".todo-ul");
+
+        const div = document.querySelector(".div");
+
+        todoUl.removeChild(div);
+    }
+
     trashBtn.addEventListener("click", removeValue);
     checkBtn.addEventListener("click", checkMarkValue);
 }
@@ -67,13 +77,3 @@ function removeValue() {
     todoUl.removeChild(removeDiv);
 }
 const clearAllValuesButton = document.querySelector(".clear-all-button");
-
-clearAllValuesButton.addEventListener("click", clearAllValues);
-
-function clearAllValues() {
-    const todoUl = document.querySelector(".todo-ul");
-
-    const div = document.querySelector(".div");
-
-    todoUl.removeChild(div);
-}
