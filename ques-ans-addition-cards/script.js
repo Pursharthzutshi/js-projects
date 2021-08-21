@@ -2,18 +2,46 @@ const addQuesButton = document.querySelector(".add-ques-button");
 
 addQuesButton.addEventListener("click", addQues);
 
+function setInterval() {
+    setInterval(addQues, 200);
+}
+
 function addQues() {
     const quesBox = document.createElement("div");
     quesBox.classList.add("ques-box");
 
+    quesBox.setAttribute("style", "margin-left:50px;transition:1s;opacity:.8;");
+
     const container = document.querySelector(".container");
+
+    const quesBoxDeleteIconContainer = document.createElement("div");
+    quesBoxDeleteIconContainer.classList.add("ques-box-delete-icon-container");
+    quesBoxDeleteIconContainer.setAttribute(
+        "style",
+        "margin-left:200px;display:flex;flex-direction:row;justify-content:flex-end;"
+    );
+
+    const quesBoxDeleteIcon = document.createElement("button");
+    quesBoxDeleteIcon.classList.add("ques-box-delete-icon");
+    quesBoxDeleteIcon.innerHTML = '<i class="fas fa-times"></i>';
+
+    quesBoxDeleteIconContainer.appendChild(quesBoxDeleteIcon);
+
+    quesBox.appendChild(quesBoxDeleteIconContainer);
+
+    quesBoxDeleteIcon.addEventListener("click", quesBoxDelete);
+
+    function quesBoxDelete() {
+        container.removeChild(quesBox);
+
+        return;
+    }
 
     const quesHeadingTitle = document.createElement("p");
     quesHeadingTitle.classList.add("ques-heading-title");
-    quesHeadingTitle.innerHTML = "Type Your Question ?";
+    quesHeadingTitle.innerHTML = "Type Your Question ";
     quesHeadingTitle.style.fontFamily = "Montserrat";
-
-    container.appendChild(quesBox);
+    quesHeadingTitle.style.fontSize = "1.3rem";
 
     container.appendChild(quesBox);
 
@@ -26,7 +54,7 @@ function addQues() {
 
     const ansHeadingTitle = document.createElement("p");
     ansHeadingTitle.classList.add("ques-heading-title");
-    ansHeadingTitle.innerHTML = "Type Your Answer ";
+    ansHeadingTitle.innerHTML = "<br>Type Your Answer ";
     ansHeadingTitle.style.fontFamily = "Montserrat";
 
     quesBox.appendChild(ansHeadingTitle);
@@ -72,6 +100,10 @@ function addQues() {
         editButton.classList.add("edit-button");
         editButton.innerHTML = '<i class="fas fa-edit"></i>';
 
+        const saveButton = document.createElement("button");
+        saveButton.classList.add("save-button");
+        saveButton.innerHTML = '<i class="fas fa-trash"></i>';
+
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
@@ -83,6 +115,8 @@ function addQues() {
         createSaveBox.appendChild(saveBoxButtonContainer);
 
         saveBoxButtonContainer.appendChild(editButton);
+
+        saveBoxButtonContainer.appendChild(saveButton);
 
         saveBoxButtonContainer.appendChild(deleteButton);
 
@@ -99,6 +133,9 @@ function addQues() {
             saveQuesHeading.innerHTML = "Question : " + quesTextArea.value;
             saveAnsHeading.innerHTML = "Answer : " + ansTextArea.value;
 
+            ansTextArea.style.border = "1px solid white";
+            quesTextArea.style.border = "1px solid white";
+
             quesTextArea.value = "";
             ansTextArea.value = "";
         } else {
@@ -109,6 +146,44 @@ function addQues() {
 
         function deleteSaveBox() {
             saveContainerBox.removeChild(createSaveBox);
+        }
+
+        editButton.addEventListener("click", editButtonChange);
+
+        function editButtonChange() {
+            const saveQuesHeadingEdit = document.querySelector(".save-ques-heading");
+            const saveAnsHeadingEdit = document.querySelector(".save-ans-heading");
+
+            saveQuesHeadingEdit.contentEditable = true;
+            saveAnsHeadingEdit.contentEditable = true;
+
+            saveQuesHeadingEdit.setAttribute(
+                "style",
+                "color:red;border-bottom:1px solid red;transition:.3s;"
+            );
+            saveAnsHeadingEdit.setAttribute(
+                "style",
+                "color:red;border-bottom:1px solid red;transition:.3s;"
+            );
+        }
+
+        saveButton.addEventListener("click", saveButtonChange);
+
+        function saveButtonChange() {
+            const saveQuesHeadingEdit = document.querySelector(".save-ques-heading");
+            const saveAnsHeadingEdit = document.querySelector(".save-ans-heading");
+
+            saveQuesHeadingEdit.contentEditable = false;
+            saveAnsHeadingEdit.contentEditable = false;
+
+            saveQuesHeadingEdit.setAttribute(
+                "style",
+                "color:black;border-bottom:none;transition:.3s;"
+            );
+            saveAnsHeadingEdit.setAttribute(
+                "style",
+                "color:black;border-bottom:none;transition:.3s;"
+            );
         }
     }
 }
