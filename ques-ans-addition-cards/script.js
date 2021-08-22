@@ -2,10 +2,6 @@ const addQuesButton = document.querySelector(".add-ques-button");
 
 addQuesButton.addEventListener("click", addQues);
 
-function setInterval() {
-    setInterval(addQues, 200);
-}
-
 function addQues() {
     const quesBox = document.createElement("div");
     quesBox.classList.add("ques-box");
@@ -64,15 +60,15 @@ function addQues() {
 
     quesBox.appendChild(ansTextArea);
 
-    const saveButton = document.createElement("button");
-    saveButton.classList.add("save-button");
-    saveButton.innerHTML = "Save";
+    const quesBoxSaveButton = document.createElement("button");
+    quesBoxSaveButton.classList.add("ques-box-save-button");
+    quesBoxSaveButton.innerHTML = "Save";
 
-    quesBox.appendChild(saveButton);
+    quesBox.appendChild(quesBoxSaveButton);
 
     addQuesButton.removeEventListener("click", addQues);
 
-    saveButton.addEventListener("click", saveBox);
+    quesBoxSaveButton.addEventListener("click", saveBox);
 
     function saveBox() {
         const saveContainerBox = document.querySelector(".save-container-box");
@@ -102,7 +98,7 @@ function addQues() {
 
         const saveButton = document.createElement("button");
         saveButton.classList.add("save-button");
-        saveButton.innerHTML = '<i class="fas fa-trash"></i>';
+        saveButton.innerHTML = '<i class="fas fa-save"></i>';
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");

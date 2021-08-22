@@ -19,13 +19,18 @@ body {
     color: white;
 }
 
+.add-ques-button:hover {
+    background: white;
+    color: #0047ab;
+    box-shadow: .2px .2px 3px .2px #0047ab;
+}
+
 .ques-box {
     width: 35%;
     height: 17rem;
     padding: 30px 16px 2px 22px;
     margin-top: 20px;
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
-    opacity: .7;
 }
 
 ques-box:hover {
@@ -120,19 +125,65 @@ ques-box:hover {
     margin-top: 40px;
 }
 
+.ques-box-save-button {
+    margin-top: 12px;
+    height: 2rem;
+    padding: 2px 13px 1px 13px;
+    font-size: .9rem;
+    border: 5px double green;
+    background: white;
+    color: green;
+}
+
+.ques-box-save-button:hover {
+    background: green;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+
 .edit-button,
+.save-button,
 .delete-button {
-    padding: 4px 10px 4px 10px;
-    font-size: 1rem;
+    height: 2rem;
+    padding: 3px 10px 3px 10px;
+    font-size: .9rem;
     color: white;
 }
 
 .edit-button {
+    margin-left: -10px;
     background: #0073cf;
+}
+
+.add-ques-button:hover,
+.edit-button:hover,
+.save-button:hover,
+.delete-button:hover {
+    cursor: pointer;
+    transition: .3s;
+    background: white;
+}
+
+.edit-button:hover {
+    color: #0073cf;
+}
+
+.save-button {
+    background: green;
+    margin-top: -1px;
+}
+
+.save-button:hover {
+    color: green;
 }
 
 .delete-button {
     background: #ff0038;
+}
+
+.delete-button:hover {
+    color: #ff0038;
 }
 
 .show-error {
