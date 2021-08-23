@@ -1,0 +1,62 @@
+.container,
+.buttons-container {
+    display: flex;
+}
+
+.container,
+.button-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons-container {
+    gap: 20px;
+    flex-direction: row;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.add-btn,
+.sub-btn,
+.reset-btn {
+    box-shadow: 0.2px 0.2px 22px 0.2px gray;
+    font-family: "Montserrat";
+    border: none;
+    font-family: ;
+    padding: 6px 10px 6px 10px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 4px;
+}
+
+.add-btn:hover,
+.sub-btn:hover,
+.reset-btn:hover {
+    cursor: pointer;
+    background: white;
+    box-shadow: 0.2px 0.2px 22px 0.2px lightgray;
+    color: black;
+    transition: 0.3s;
+}
+
+.add-btn {
+    background: #228b22;
+}
+
+.sub-btn {
+    background: #ff0800;
+}
+
+.reset-btn {
+    background: black;
+}
+
+.demo {
+    box-shadow: 0.2px 0.2px 12px 0.2px lightgray;
+    padding: 7px 16px 7px 16px;
+    font-size: 2.7rem;
+    font-family: "Montserrat";
+    visibility: hidden;
+}
