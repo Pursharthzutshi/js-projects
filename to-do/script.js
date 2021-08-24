@@ -24,7 +24,9 @@ function todoDiv() {
     if (input.value != "") {
         li.innerHTML = input.value;
         input.value = "";
+        input.style.border = "1px solid rgb(6 149 246)";
     } else {
+        input.style.border = "1px solid red";
         return;
     }
 
@@ -52,7 +54,12 @@ function todoDiv() {
 
     todoUl.appendChild(div);
 
-    clearAllValuesButton.addEventListener("click", clearAllValues);
+    trashBtn.addEventListener("click", removeValue);
+    checkBtn.addEventListener("click", checkMarkValue);
+
+    const clearAllValuesButton = document.querySelector(".clear-all-button");
+
+    clearAllValuesButton.addEventListener("click", clearAllValues, true);
 
     function clearAllValues() {
         const todoUl = document.querySelector(".todo-ul");
@@ -61,13 +68,10 @@ function todoDiv() {
 
         todoUl.removeChild(div);
     }
-
-    trashBtn.addEventListener("click", removeValue);
-    checkBtn.addEventListener("click", checkMarkValue);
 }
 
 function checkMarkValue(e) {
-    const checkMark = document.querySelector("li");
+    const checkMark = document.querySelector(".li");
 
     checkMark.classList.toggle("toggle-li");
 }
@@ -76,4 +80,3 @@ function removeValue() {
     const removeDiv = document.querySelector(".div");
     todoUl.removeChild(removeDiv);
 }
-const clearAllValuesButton = document.querySelector(".clear-all-button");
