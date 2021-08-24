@@ -1,12 +1,10 @@
 const addQuesButton = document.querySelector(".add-ques-button");
 
-addQuesButton.addEventListener("click", addQues);
+addQuesButton.addEventListener("click", addQues, true);
 
 function addQues() {
     const quesBox = document.createElement("div");
     quesBox.classList.add("ques-box");
-
-    quesBox.setAttribute("style", "margin-left:50px;transition:1s;opacity:.8;");
 
     const container = document.querySelector(".container");
 
@@ -25,21 +23,24 @@ function addQues() {
 
     quesBox.appendChild(quesBoxDeleteIconContainer);
 
-    quesBoxDeleteIcon.addEventListener("click", quesBoxDelete);
-
-    function quesBoxDelete() {
-        container.removeChild(quesBox);
-
-        return;
-    }
-
     const quesHeadingTitle = document.createElement("p");
     quesHeadingTitle.classList.add("ques-heading-title");
     quesHeadingTitle.innerHTML = "Type Your Question ";
-    quesHeadingTitle.style.fontFamily = "Montserrat";
-    quesHeadingTitle.style.fontSize = "1.3rem";
+
+    quesHeadingTitle.setAttribute(
+        "style",
+        'font-size:1.3rem;font-family:"Montserrat"'
+    );
 
     container.appendChild(quesBox);
+
+    quesBoxDeleteIcon.addEventListener("click", quesBoxDelete);
+
+    function quesBoxDelete() {
+        const quesBoxDeleteValue = document.querySelector(".ques-box");
+
+        container.removeChild(quesBoxDeleteValue);
+    }
 
     quesBox.appendChild(quesHeadingTitle);
 
