@@ -20,7 +20,7 @@ iconContainer.appendChild(showMenuIcon);
 
 profileCard.appendChild(iconContainer);
 
-showMenuIcon.addEventListener("click", showMenuBar);
+showMenuIcon.addEventListener("click", showMenuBar, true);
 
 
 function showMenuBar() {
@@ -34,12 +34,15 @@ function showMenuBar() {
 
     showMenuIcon.style.visibility = 'hidden';
 
-
     const closeMenuBarIcon = document.createElement("button");
     closeMenuBarIcon.classList.add("close-menu-bar-icon");
     closeMenuBarIcon.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
 
     menuBar.appendChild(closeMenuBarIcon);
+
+    const menuBarUl = document.createElement("ul");
+    menuBarUl.classList.add("menu-bar-ul");
+
 
     const iconsRowLink = document.createElement("div");
     iconsRowLink.classList.add("icons-row-link");
@@ -54,15 +57,20 @@ function showMenuBar() {
     menuBarLi.innerHTML = '<a href="#">My Profile</a>';
     menuBarLi.style.listStyle = 'none';
 
+
+
     iconsRowLink.appendChild(menuBarIcons);
 
     iconsRowLink.appendChild(menuBarLi);
 
-    menuBar.appendChild(iconsRowLink);
+    menuBarUl.appendChild(iconsRowLink);
+
+    menuBar.appendChild(menuBarUl);
+
 
     menuBarContainer.appendChild(menuBar);
 
-    closeMenuBarIcon.addEventListener("click", closeMenuBar);
+    closeMenuBarIcon.addEventListener("click", closeMenuBar, true);
 
     function closeMenuBar() {
 
@@ -74,7 +82,6 @@ function showMenuBar() {
 
     }
 
-
 }
 
 
@@ -85,10 +92,15 @@ function darkBackground() {
     const profileCard = document.querySelector(".profile-card");
 
     document.body.style.background = ' #16161d';
-    profileCard.style.background = '#16161d';
-    profileCard.style.color = 'white';
-    profileCard.style.boxShadow = '.2px .2px 18px .2px black';
-    menuBar.style.background = '#16161d';
-    menuBar.style.boxShadow = '.2px .2px 18px .2px black';
+
+    profileCard.setAttribute('style', 'background:#16161d;color:white;box-shadow:.2px .2px 5px .2px black;');
+
+    menuBar.setAttribute('style', 'background:#16161d;box-shadow:.2px .2px 5px .2px black;');
+
+    const darkIcon = document.querySelector('.dark-icon');
+
+    darkIcon.style.background = 'black';
+
+    darkIcon.innerHTML = '<ion-icon name="moon"></ion-icon>';
 
 }

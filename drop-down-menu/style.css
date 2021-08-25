@@ -21,12 +21,10 @@ body {
     padding: 13px 12px 2px 32px;
     align-items: center;
     flex-direction: column;
-}
-
-.profile-card {
     width: 19rem;
     height: 16.5rem;
     box-shadow: .2px .2px 2px .2px gray;
+    margin-left: 200px;
 }
 
 img {
@@ -38,10 +36,14 @@ img {
 }
 
 p {
-    font-size: 1rem;
+    font-family: 'Montserrat';
+    margin-top: -10px;
+    font-size: .9rem;
 }
 
 span {
+    margin-top: -10px;
+    font-size: .8rem;
     color: gray;
 }
 
@@ -61,7 +63,6 @@ span {
 .menu-bar-icons {
     border: none;
     color: white;
-    box-shadow: .2px .2px 21px .2px lightgray;
 }
 
 .show-menu-icon {
@@ -78,16 +79,21 @@ span {
     color: black;
 }
 
+.menu-bar-container {
+    margin-left: 200px;
+}
+
 .menu-bar {
     margin: 1px 0px 0px -1px;
     width: 22rem;
     height: 10rem;
-    box-shadow: .2px .2px 12px .2px gray;
+    box-shadow: .2px .2px 3px .2px black;
 }
 
 .close-menu-bar-icon {
     background: red;
     padding: 5px 12px 5px 12px;
+    cursor: pointer;
 }
 
 .icons-row-link {
@@ -101,6 +107,7 @@ span {
     font-size: 1rem;
     margin: .5px 0px 0px -10px;
     color: rgb(25, 111, 148);
+    text-decoration: none;
 }
 
 .menu-bar-icons {
@@ -118,4 +125,9 @@ span {
     padding: 6px 14px 6px 14px;
     margin-left: 240px;
     border-radius: 200px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
 }
