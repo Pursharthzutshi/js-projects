@@ -54,8 +54,11 @@ function todoDiv() {
 
     todoUl.appendChild(div);
 
+    const container = document.querySelector(".container");
+
+    container.addEventListener("click", checkMarkValue);
+
     trashBtn.addEventListener("click", removeValue);
-    checkBtn.addEventListener("click", checkMarkValue);
 
     const clearAllValuesButton = document.querySelector(".clear-all-button");
 
@@ -71,9 +74,22 @@ function todoDiv() {
 }
 
 function checkMarkValue(e) {
-    const checkMark = document.querySelector(".li");
 
-    checkMark.classList.toggle("toggle-li");
+    const container = document.querySelector(".container");
+
+    const target = e.target;
+
+    if (!target) {
+        return;
+    }
+
+    if (target.matches(".check-btn") && container.contains(target)) {
+
+        const todo = target.closest(".btn-container");
+
+        todo.previousElementSibling.classList.toggle("toggle-li");
+    }
+
 }
 
 function removeValue() {
